@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1023535251344",
+    "project_id": "appointify-42279",
+    "storage_bucket": "appointify-42279.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023535251344:android:75c2617ad0a04357e3bd15",
+        "android_client_info": {
+          "package_name": "com.devsimone.appointify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4O0JC2cEUy3ZKnIhVWYByP1QryLrgZ64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
