@@ -81,30 +81,30 @@ class SignupActivity : AppCompatActivity() {
                 }
             }
 
-            btnSignUp.setOnClickListener {
-                if (userDp.drawable != null &&
-                    edtUsername.text.toString().trim() != "" &&
-                    edtAdmn.text.toString().trim() != "" &&
-                    edtMail.text.toString().trim() != "" &&
-                    edtPhone.text.toString().trim() != "" &&
-                    edtPassword.text.toString().trim() != "" &&
-                    edtPasswordConfirm.text.toString()
-                        .trim() != "" && edtPasswordConfirm.text.toString()
-                        .trim() == edtPassword.text.toString().trim()
-                ) {
-
-                    updateUser(binding, user)
-
-                } else {
-                    val sweetAlertDialog =
-                        SweetAlertDialog(this@SignupActivity, SweetAlertDialog.ERROR_TYPE)
-                    sweetAlertDialog.contentText = "Please fill in all the fields!"
-                    sweetAlertDialog.setCancelable(true)
-                    sweetAlertDialog.show()
-                }
-
-
+           btnSignUp.setOnClickListener {
+            if (areAllFieldsFilled() && doPasswordsMatch()) {
+                updateUser(binding, user)
+            } else {
+                val sweetAlertDialog = SweetAlertDialog(this@SignupActivity, SweetAlertDialog.ERROR_TYPE)
+                sweetAlertDialog.contentText = "Please fill in all the fields and ensure passwords match!"
+                sweetAlertDialog.setCancelable(true)
+                sweetAlertDialog.show()
             }
+        }
+        
+        fun areAllFieldsFilled(): Boolean {
+            return userDp.drawable != null &&
+                    edtUsername.text.toString().trim().isNotEmpty() &&
+                    edtAdmn.text.toString().trim().isNotEmpty() &&
+                    edtMail.text.toString().trim().isNotEmpty() &&
+                    edtPhone.text.toString().trim().isNotEmpty() &&
+                    edtPassword.text.toString().trim().isNotEmpty() &&
+                    edtPasswordConfirm.text.toString().trim().isNotEmpty()
+        }
+        
+        fun doPasswordsMatch(): Boolean {
+            return edtPassword.text.toString().trim() == edtPasswordConfirm.text.toString().trim()
+        }
 
 
             btnToLogIn.setOnClickListener {
